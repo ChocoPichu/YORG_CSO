@@ -4,10 +4,11 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(270deg, #00c9ff, #7109AA);
+    font-family: fantasy;
+    background: linear-gradient(270deg, #AFE1AF, #7FFFD4);
     background-size: 400% 400%;
     animation: gradientAnimation 15s ease infinite;
+    overflow: hidden;
 }
 
 @keyframes gradientAnimation {
@@ -23,6 +24,12 @@ body {
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.50); /* 50% transparency */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#passwordForm:hover, #bookmarkletForm:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 #passwordForm input[type="password"], #bookmarkletForm input[type="text"] {
@@ -31,19 +38,145 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 80%;
-    font-size: 1.5em;
+    font-size: 3em; /* Twice the original size */
 }
 
-#passwordForm button, #bookmarkletForm button {
-    padding: 10px 20px;
+#passwordForm button, #bookmarkletForm button, #bookmarkletForm a {
+    padding: 5px 10px; /* Smaller padding for smaller buttons */
     border: none;
     border-radius: 5px;
     background-color: #28a745;
     color: white;
-    font-size: 1em;
+    font-size: 2em; /* Twice the original size */
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#passwordForm button:hover, #bookmarkletForm button:hover {
+#passwordForm button:hover, #bookmarkletForm button:hover, #bookmarkletForm a:hover {
     background-color: #218838;
+    transform: scale(1.1);
+}
+
+#bookmarkletForm a {
+    margin: 5px 0;
+    padding: 5px 10px; /* Smaller padding for smaller buttons */
+    width: auto; /* Remove fixed width */
+    display: inline-block; /* Display as inline-block */
+    text-align: center;
+    font-size: 2em; /* Twice the original size */
+}
+
+h2 {
+    font-size: 3em; /* Twice the original size */
+}
+
+.decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 34.64px 20px; /* Equilateral triangle */
+    border-color: transparent transparent white transparent;
+    opacity: 0.5;
+    animation: move 5s infinite;
+}
+
+.triangle1 {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.triangle2 {
+    top: 30%;
+    left: 60%;
+    animation-delay: 2s;
+}
+
+.triangle3 {
+    top: 70%;
+    left: 40%;
+    animation-delay: 4s;
+}
+
+.triangle4 {
+    top: 20%;
+    left: 70%;
+    animation-delay: 1s;
+}
+
+.triangle5 {
+    top: 50%;
+    left: 50%;
+    animation-delay: 3s;
+}
+
+.triangle6 {
+    top: 80%;
+    left: 10%;
+    animation-delay: 5s;
+}
+
+.line {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background-color: white;
+    opacity: 0.5;
+    animation: move 5s infinite;
+}
+
+.line1 {
+    top: 20%;
+    left: 80%;
+    animation-delay: 1s;
+}
+
+.line2 {
+    top: 50%;
+    left: 30%;
+    animation-delay: 3s;
+}
+
+.line3 {
+    top: 80%;
+    left: 70%;
+    animation-delay: 5s;
+}
+
+.line4 {
+    top: 40%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.line5 {
+    top: 70%;
+    left: 90%;
+    animation-delay: 4s;
+}
+
+.line6 {
+    top: 10%;
+    left: 50%;
+    animation-delay: 0s;
+}
+
+@keyframes move {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(20px); }
+    100% { transform: translateY(0px); }
 }
